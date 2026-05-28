@@ -218,30 +218,36 @@ export default function Navbar() {
           <Link
             href="/connect"
             className="
-              rounded-2xl
+            hidden
+            md:inline-flex
 
-              bg-orange-400
+            items-center
+            justify-center
 
-              px-5
-              py-2
+            rounded-2xl
 
-              text-sm
-              font-semibold
-              text-black
+            bg-orange-400
 
-              shadow-lg
-              shadow-orange-500/20
+            px-5
+            py-2
 
-              transition-all
-              duration-500
-              ease-[cubic-bezier(0.16,1,0.3,1)]
+            text-sm
+            font-semibold
+            text-black
 
-              hover:scale-105
-              hover:bg-orange-300
+            shadow-lg
+            shadow-orange-500/20
 
-              dark:bg-orange-500
-              dark:text-white
-            "
+            transition-all
+            duration-500
+            ease-[cubic-bezier(0.16,1,0.3,1)]
+
+            hover:scale-105
+            hover:bg-orange-300
+
+            dark:bg-orange-500
+            dark:text-white
+          "
           >
             Connect WiFi
           </Link>

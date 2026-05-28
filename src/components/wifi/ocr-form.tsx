@@ -55,45 +55,48 @@ export default function OCRForm({
       onOpenChange={onOpenChange}
     >
       <SheetContent
-  side={
-    isDesktop
-      ? "right"
-      : "bottom"
-  }
-  className={`
-    flex
-    flex-col
+        side={
+          isDesktop
+            ? "right"
+            : "bottom"
+        }
+        className={`
+          flex
+          flex-col
 
-    h-[95vh]
+          max-h-[95dvh]
 
-    overflow-hidden
+          overflow-hidden
 
-    border-white/10
+          border-white/10
 
-    bg-[#fffaf5]
+          bg-[#fffaf5]
 
-    p-0
+          p-0
 
-    dark:bg-[#0b0b0b]
+          dark:bg-[#0b0b0b]
 
-    data-[state=open]:duration-500
+          data-[state=open]:duration-500
 
-    ${
-      !isDesktop
-        ? `
-          rounded-t-[32px]
-          border-t
-          border-x
-          border-b-0
-        `
-        : `
-          border-l
-          max-w-xl
-        `
-    }
-  `}
->
-        {/* Mobile Handle */}
+          ${
+            !isDesktop
+              ? `
+                rounded-t-[32px]
+
+                border-t
+                border-x
+                border-b-0
+              `
+              : `
+                border-l
+                max-w-xl
+              `
+          }
+        `}
+      >
+        {/* ========================= */}
+        {/* MOBILE HANDLE */}
+        {/* ========================= */}
         {!isDesktop && (
           <div className="flex justify-center pt-3">
             <div
@@ -110,15 +113,30 @@ export default function OCRForm({
           </div>
         )}
 
-        <div className="p-6 overflow-y-auto">
+        {/* ========================= */}
+        {/* SCROLL AREA */}
+        {/* ========================= */}
+        <div
+          className="
+            flex-1
+
+            overflow-y-auto
+
+            overscroll-contain
+
+            p-6
+            lg:p-8
+          "
+        >
           {/* ========================= */}
           {/* HEADER */}
           {/* ========================= */}
-          <SheetHeader className="mb-4 text-left">
-            <div className="mb-5 flex items-start">
-              {/* Icon */}
-              
+          <SheetHeader className="mb-6 text-left">
+            <div className="flex items-start">
+              {/* ICON */}
+            
 
+              {/* TITLE */}
               <div>
                 <SheetTitle className="text-3xl font-black">
                   Scan Menu OCR
@@ -128,6 +146,7 @@ export default function OCRForm({
                   className="
                     mt-2
                     leading-relaxed
+
                     text-gray-600
                     dark:text-gray-400
                   "
@@ -143,59 +162,63 @@ export default function OCRForm({
 
           {/* ========================= */}
           {/* SCANNER AREA */}
+          {/* ========================= */}
+          <div
+            className="
+              rounded-[32px]
 
-        <div
-          className="
-            rounded-[32px]
+              border
+              border-dashed
+              border-orange-200
 
-            border
-            border-dashed
-            border-orange-200
+              bg-orange-50/50
 
-            bg-orange-50/50
+              p-6
 
-            p-6
-
-            dark:border-white/10
-            dark:bg-white/[0.03]
-          "
-        >
-          {isDesktop ? (
-            <div className="space-y-5">
-              <DesktopUpload
-                setResult={setResult}
-              />
-
-              {result && (
-                <ScannerResult
-                  result={result}
-                  setScanMode={setScanMode}
+              dark:border-white/10
+              dark:bg-white/[0.03]
+            "
+          >
+            {isDesktop ? (
+              <div className="space-y-5">
+                {/* DESKTOP UPLOAD */}
+                <DesktopUpload
+                  setResult={setResult}
                 />
-              )}
-            </div>
-          ) : (
-            <>
-              {!scanMode ? (
-                <ScannerEmpty
-                  setScanMode={setScanMode}
-                />
-              ) : (
-                <div className="space-y-5">
-                  <QrScannerView
-                    setResult={setResult}
+
+                {/* RESULT */}
+                {result && (
+                  <ScannerResult
+                    result={result}
+                    setScanMode={setScanMode}
                   />
-
-                  {result && (
-                    <ScannerResult
-                      result={result}
-                      setScanMode={setScanMode}
+                )}
+              </div>
+            ) : (
+              <>
+                {!scanMode ? (
+                  <ScannerEmpty
+                    setScanMode={setScanMode}
+                  />
+                ) : (
+                  <div className="space-y-5">
+                    {/* MOBILE CAMERA */}
+                    <QrScannerView
+                      setResult={setResult}
                     />
-                  )}
-                </div>
-              )}
-            </>
-          )}
-        </div>
+
+                    {/* RESULT */}
+                    {result && (
+                      <ScannerResult
+                        result={result}
+                        setScanMode={setScanMode}
+                      />
+                    )}
+                  </div>
+                )}
+              </>
+            )}
+          </div>
 
           {/* ========================= */}
           {/* NOTE */}
@@ -232,6 +255,7 @@ export default function OCRForm({
               className="
                 mt-0.5
                 min-w-[20px]
+
                 text-[20px]
                 text-orange-500
               "

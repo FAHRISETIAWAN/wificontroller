@@ -8,10 +8,10 @@ export default function CTA() {
           mx-auto
           max-w-7xl
           overflow-hidden
-          rounded-[40px]
+          rounded-[30px]
           border border-black/10
           bg-[#1f1f1f]
-          p-10
+          p-5
           md:p-16
           dark:border-white/10
         "
@@ -94,7 +94,7 @@ export default function CTA() {
                 z-20
                 h-[500px]
                 w-auto
-                rounded-[40px]
+                rounded-[30px]
                 object-cover
                 shadow-2xl
               "
